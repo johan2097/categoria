@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header bg-success">
+        <h6>Lista de Categorias</h6>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>No Categoria</th>
+                  <th>Nombre de Categoria</th>
+                  <th>Subcategoria</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of categoryList; trackBy: trackByCatId">
+                  <td>{{ item.catId }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.subcat }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header bg-success">
+        Nueva Categoria
+      </div>
+      <div class="card-body">
+        <form [formGroup]="categoriaForm">
+          <div class="row">
+            <div class="col-12">
+              <label for="">Nombre de categoria</label>
+              <input type="text" formControlName="name" class="form-control">
+            </div>
+            <div class="col-12">
+              <label for="">subcategoria</label>
+              <input type="text" formControlName="subcat" class="form-control">
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="col-6 text-center">
+              <button class="btn btn-secundary">Regresar</button>
+            </div>
+            <div class="col-6 text-center">
+              <button class="btn btn-success" click="onSave()">Guardar Categoria</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
